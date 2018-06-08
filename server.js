@@ -18,7 +18,7 @@ server.post( '/api/projects', ( req, res ) =>
     const { name, description, completed } = req.body;
     if ( !name || !description )
     {
-        res.status( 404 ).json( { error: 'We need name and description.' } );
+        res.status( 404 ).json( { error: 'We need more info bruh.' } );
         return;
     }
     const newProject = { name, description, completed };
@@ -76,7 +76,7 @@ server.put( '/api/projects/:id', ( req, res ) =>
     const updatedProject = { name, description, completed };
     if ( !name || !description )
     {
-        res.status( 404 ).json( { error: 'We need name and description.' } );
+        res.status( 404 ).json( { error: 'I need more data!' } );
         return;
     }
     const { id } = req.params;
@@ -87,7 +87,7 @@ server.put( '/api/projects/:id', ( req, res ) =>
             res.json( response );
         } )
         .catch( err =>
-            res.status( 400 ).json( { error: 'Cannot update that item from DB.' } )
+            res.status( 400 ).json( { error: 'Cannot update that!' } )
         );
 } );
 
@@ -100,13 +100,13 @@ server.delete( '/api/projects/:id', ( req, res ) =>
         {
             if ( response == 0 )
             {
-                res.status( 404 ).json( { error: 'That ID does not live in our DB.' } );
+                res.status( 404 ).json( { error: 'That aint here.' } );
                 return;
             }
             res.json( { success: 'Item removed from DB.' } );
         } )
         .catch( err =>
-            res.status( 400 ).json( { error: 'Cannot remove that item from DB.' } )
+            res.status( 400 ).json( { error: 'No can do Hombre.' } )
         );
 } );
 
@@ -118,7 +118,7 @@ server.post( '/api/actions', ( req, res ) =>
     const newAction = { project_id, description, completed, notes }
     if ( !project_id || !description )
     {
-        res.status( 404 ).json( { error: 'We need project ID and description.' } );
+        res.status( 404 ).json( { error: 'We need more info.' } );
         return;
     }
     actions
@@ -160,7 +160,7 @@ server.put( '/api/actions/:id', ( req, res ) =>
     const updatedAction = { project_id, description, notes };
     if ( !project_id || !description )
     {
-        res.status( 404 ).json( { error: 'We need project ID and description.' } );
+        res.status( 404 ).json( { error: 'We need more info.' } );
         return;
     }
     const { id } = req.params;
@@ -171,7 +171,7 @@ server.put( '/api/actions/:id', ( req, res ) =>
             res.json( response );
         } )
         .catch( err =>
-            res.status( 400 ).json( { error: 'Cannot update that item from DB.' } )
+            res.status( 400 ).json( { error: 'No can do.' } )
         );
 } );
 
@@ -184,7 +184,7 @@ server.delete( '/api/actions/:id', ( req, res ) =>
         {
             if ( response == 0 )
             {
-                res.status( 404 ).json( { error: 'That ID does not live in our DB.' } );
+                res.status( 404 ).json( { error: 'That aint here.' } );
                 return;
             }
             res.json( { success: 'You are the Weakest Link! Goodbye!' } );
